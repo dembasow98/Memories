@@ -15,9 +15,18 @@ app.use(express.json());
 //Allowing app to use cors
 app.use(cors());
 
+
+//importing routes
+import postRoutes from "./routes/posts.js";
+
+//using routes(applying middleware)
+app.use("/posts", postRoutes);
+
+
 //variables
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
+
 
 //Connecting to database
 mongoose.connect(MONGODB_URI, {
@@ -27,3 +36,4 @@ mongoose.connect(MONGODB_URI, {
 .then(() => console.log("Database connected successfully!"))
 .then(() => app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)))
 .catch((error) => console.log(error.message));
+
