@@ -13,6 +13,10 @@ const postSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    eventDate:{
+        type: Date,
+        default: new Date()
+    },
     createdAt: {
         type: Date,
         default: new Date()
